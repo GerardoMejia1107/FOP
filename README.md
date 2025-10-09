@@ -1,2 +1,0 @@
-# FOP
-Forensic Operations Platform
