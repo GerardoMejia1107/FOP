@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6fb;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 240px;
+  background-color: #181b26;
+  color: #fff;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  color: #d5dff2;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 15px 0;
+}
+
+.nav-links a {
+  color: #d5dff2;
+  text-decoration: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #4f5573;
+}
+
+.icon {
+  font-size: 1.4em;
+  width: 40px;
+  text-align: center;
+}
+
+.link-text {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.toggle-btn {
+  background-color: #4f5573;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: #9fa7bf;
+}
+
+/* Contenido principal */
+.content {
+  margin-left: 240px;
+  padding: 40px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Sidebar colapsado */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .link-text {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sidebar.collapsed .content {
+  margin-left: 70px;
+}
