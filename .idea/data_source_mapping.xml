@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/9234abe3-d6ac-4bc9-a379-7dcd0affecac/console.sql" value="9234abe3-d6ac-4bc9-a379-7dcd0affecac" />
+    <file url="file://$PROJECT_DIR$/backend/db/drops.sql" value="9234abe3-d6ac-4bc9-a379-7dcd0affecac" />
+    <file url="file://$PROJECT_DIR$/backend/db/dummy_inserts.sql" value="9234abe3-d6ac-4bc9-a379-7dcd0affecac" />
+    <file url="file://$PROJECT_DIR$/backend/db/queries.sql" value="9234abe3-d6ac-4bc9-a379-7dcd0affecac" />
+    <file url="file://$PROJECT_DIR$/backend/db/shema.sql" value="9234abe3-d6ac-4bc9-a379-7dcd0affecac" />
+  </component>
+</project>
