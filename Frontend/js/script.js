@@ -1,3 +1,7 @@
+// SPA Routing
+const app = document.getElementById('app');
+
+
 // Sidebar toggle
 const sidebar = document.getElementById('sidebar');
 const toggleBtn = document.getElementById('toggleBtn');
@@ -6,23 +10,49 @@ toggleBtn.addEventListener('click', () => {
   sidebar.classList.toggle('collapsed');
 });
 
-// SPA Routing
-const app = document.getElementById('app');
 
 // Vistas
 const rutas = {
-  '/': '<h1>Inicio</h1><p>Bienvenido al panel forense.</p>',
-  '/casos': '<h1>Casos</h1><p>Listado de casos activos.</p>',
-  '/usuarios': '<h1>Usuarios</h1><p>Gestión de usuarios del sistema.</p>',
-  '/reportes': '<h1>Reportes</h1><p>Generación de reportes forenses.</p>',
-  '/configuracion': '<h1>Configuración</h1><p>Ajustes del sistema.</p>',
+  '/inicio': 'vistas/inicio.html',
+  '/casos': 'vistas/casos.html',
+  '/usuarios': 'vistas/usuarios.html',
+  '/reportes': 'vistas/reportes.html',
+  '/configuracion': 'vistas/configuracion.html',
 };
+
 
 // Función para renderizar según la ruta
 function router() {
-  const path = window.location.pathname;
-  app.innerHTML = rutas[path] || '<h1>404</h1><p>Página no encontrada</p>';
+  let path = window.location.pathname;
+
+  // Redirigir raíz o index.html a /inicio
+  if (path === '/' || path === '/index.html') {
+    history.replaceState(null, null, '/inicio');
+    path = '/inicio';
+  }
+
+  const ruta = rutas[path];
+
+  if (ruta) {
+    fetch(ruta)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('No se pudo cargar la vista');
+        }
+        return response.text();
+      })
+      .then(html => {
+        app.innerHTML = html;
+      })
+      .catch(err => {
+        app.innerHTML = '<h1>Error</h1><p>No se pudo cargar la vista solicitada.</p>';
+        console.error(err);
+      });
+  } else {
+    app.innerHTML = '<h1>404</h1><p>Página no encontrada</p>';
+  }
 }
+
 
 // Navegación sin recargar
 function navegar(event) {
